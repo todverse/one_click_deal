@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Создать сделку',
+      title: 'OneClickDeal',
     },
   },
 

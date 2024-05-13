@@ -116,9 +116,9 @@ const getByPhone = async () => {
             phoneNumber = phoneNumber.join('')
             let contacts = await getContact(phoneNumber)
             if(!contacts.length) {
-                openNotificationWithIcon('info', 'Не было найдено ни одной сделки', 'Сделка будет создана автоматически')
+                openNotificationWithIcon('info', 'Не было найдено ни одного контакта', 'Контакт будет создан автоматически')
             } else {
-                openNotificationWithIcon('info', 'Была найдена '+contacts.length+ ' сделка', 'Если их более 2-х, проверьте их во вкладке CRM, по-умолчанию будет использованная 1 полученная сделка')
+                openNotificationWithIcon('info', 'Был найден '+contacts.length+ ' контакт', 'Если их более 2-х, проверьте их во вкладке CRM, по-умолчанию будет использованная 1 полученный контакт')
             }
             contact_id.value = contacts[0]
         } else {

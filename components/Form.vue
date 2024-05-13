@@ -241,8 +241,8 @@ const finish = async () => {
 <template>
     <div class="w-2/5 rounded-lg bg-gray-50 m-auto">
         <CloseOutlined class="text-black close" @click="tokens.chst" style="margin-left: 95%;" />
-        <a-typography-title v-if="page == 1" class="text-black" :level="1">Контакт клиента</a-typography-title>
-        <a-typography-title v-else class="text-black" :level="1">Сделка</a-typography-title>
+        <a-typography-title v-if="page == 1" class="text-black" style="margin-left:10px;" :level="3">Контакт клиента</a-typography-title>
+        <a-typography-title v-else class="text-black" style="margin-left:10px;" :level="3">Сделка</a-typography-title>
         <a-form v-show="page == 1" id="form" class="p-5">
             <a-form-item label="Номер телефона клиента">
                 <a-input v-model:value="phone"></a-input>

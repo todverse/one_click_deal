@@ -192,7 +192,9 @@ const finish = async () => {
                     value: user.ID
                 })
             })
-            let dateString = date.value.split('-')[1]+''+date.value.split('-')[2]+''+date.value.split('-')[0]
+            let date_day = date.value.split('T')[0]
+            let time = date.value.split('T')[1]
+            let dateString = date_day.split('-')[2]+''+date_day.split('-')[1]+''+date_day.split('-')[0]
             let use
             let use_name = ''
             deal_user_id.value.forEach((u) => {
@@ -216,7 +218,7 @@ const finish = async () => {
                 comm: comments.value
             }
             if(contact_id.value) {
-                data.title = dateString + ' ' + deal_name.value + ' ' + contact_id.value.NAME + ' ' + address.value + ' ' + use_name
+                data.title = dateString + ' ' + deal_name.value + ' с ' + time + ' ' + contact_id.value.NAME.split(' ')[0] + ' ' + address.value + ' ' + use_name
                 data.contact_id = contact_id.value.ID
             } else {
                 contact_id.value = await createContact({
@@ -225,7 +227,7 @@ const finish = async () => {
                     user_id: user_id.value,
                     phoneNumber: phoneNumber
                 })
-                data.title = dateString + ' ' + deal_name.value + ' ' + name.value + ' ' + address.value + ' ' + use_name
+                data.title = dateString + ' ' + deal_name.value + ' с ' + time + ' ' + name.value + ' ' + address.value + ' ' + use_name
                 data.contact_id = contact_id.value
             }
             await createDeal(data)
@@ -271,7 +273,7 @@ const finish = async () => {
 
         <a-form v-show="page == 2" id="form" class="p-5">
             <a-form-item label="Дата сделки">
-                <a-input type="date" v-model:value="date"></a-input>
+                <a-input type="datetime-local" v-model:value="date"></a-input>
             </a-form-item>
             <a-form-item label="Дата завершения">
                 <a-input type="date" v-model:value="date_end"></a-input>
